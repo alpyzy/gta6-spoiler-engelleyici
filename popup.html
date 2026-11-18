@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GTA 6 Spoiler Engelleyici</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="header">
+    <div class="brand">
+      <span class="shield-icon">🛡️</span>
+      <div>
+        <h1>GTA 6 KALKANI <span class="ver">v1.2</span></h1>
+        <p class="subtitle">X • Kick • YouTube • IG • Reddit</p>
+      </div>
+    </div>
+    <label class="switch" title="Kalkanı Aç / Kapat">
+      <input type="checkbox" id="toggleEnabled" checked />
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="stats-card">
+    <div class="stat-label">Engellenen Spoiler Sayısı</div>
+    <div class="stat-value" id="blockedCount">0</div>
+  </div>
+
+  <div class="setting-row">
+    <div>
+      <div class="setting-title">Katı Mod (Strict Mode)</div>
+      <div class="setting-desc">"Yine de Göster" butonunu gizler, yanlışlıkla açmayı önler.</div>
+    </div>
+    <label class="switch">
+      <input type="checkbox" id="toggleStrict" />
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="keywords-section">
+    <div class="section-header">
+      <span>Ekstra Engellenecek Kelimeler</span>
+    </div>
+    <div class="input-group">
+      <input type="text" id="keywordInput" placeholder="Örn: yeni karakter, görev adı..." />
+      <button id="addKeywordBtn">Ekle</button>
+    </div>
+    <div class="keyword-list" id="keywordList"></div>
+  </div>
+
+  <div class="keywords-section sync-section">
+    <div class="section-header">
+      <span>🌐 Ortak Liste URL (Arkadaşlarla Senkron)</span>
+      <span class="sync-status" id="syncStatus"></span>
+    </div>
+    <div class="input-group">
+      <input type="text" id="remoteUrlInput" placeholder="GitHub Raw / Gist JSON linki..." />
+      <button id="syncNowBtn" title="Ortak Listeyi Şimdi Güncelle">Güncelle</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>AI Sohbetleri (Claude/ChatGPT) otomatik hariç tutulur</span>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

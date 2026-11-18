@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "GTA 6 Spoiler Engelleyici",
+  "version": "1.2.0",
+  "description": "X, Kick, Twitch, Instagram, YouTube, Reddit, TikTok ve diğer tüm sitelerde GTA 6 ile ilgili gönderileri blurlar.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "alarms"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "GTA 6 Spoiler Engelleyici"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "styles.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

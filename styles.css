@@ -1,0 +1,157 @@
+/* GTA 6 Spoiler Engelleyici - Styles v1.3 */
+
+.gta6-spoiler-container {
+  overflow-anchor: none !important;
+}
+
+.gta6-spoiler-pos-relative {
+  position: relative !important;
+}
+
+/*
+  X (Twitter) ve diğer sitelerde fareyle üzerine gelindiğinde (hover)
+  içeriğin şeffaflaşıp/belirginleşip tekrar blurlanmama sorununu kesin olarak önlemek için:
+  1) Çocukları hem ağır blurla hem de opacity: 0.04 ile neredeyse görünmez yap.
+  2) Overlay'in arka planını yarı şeffaf değil, %98 opak koyu renk + backdrop-filter: blur(28px) yap.
+  Böylece X veya başka bir site React re-render ile çocuk class'ını değiştirse bile overlay'in arkası ASLA görünmez!
+*/
+.gta6-spoiler-container.gta6-spoiler-active > *:not(.gta6-spoiler-overlay):not(.gta6-kick-keep-visible),
+.gta6-spoiler-container.gta6-spoiler-active:hover > *:not(.gta6-spoiler-overlay):not(.gta6-kick-keep-visible) {
+  filter: blur(32px) brightness(0.18) saturate(0.2) !important;
+  -webkit-filter: blur(32px) brightness(0.18) saturate(0.2) !important;
+  opacity: 0.08 !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  transition: none !important;
+}
+
+/* Eğer elementin içinde alt element yoksa (sadece metin düğümü varsa) */
+.gta6-spoiler-container.gta6-spoiler-active.gta6-spoiler-leaf-blur {
+  color: transparent !important;
+  text-shadow: 0 0 14px rgba(255, 255, 255, 0.35) !important;
+  user-select: none !important;
+}
+
+/* Kırmızı GTA 6 SPOILER Uyarı Katmanı */
+.gta6-spoiler-overlay,
+.gta6-spoiler-overlay:hover {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 2147483640 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  padding: 10px !important;
+  background: radial-gradient(
+    circle at center,
+    rgba(28, 2, 8, 0.97) 0%,
+    rgba(10, 10, 14, 0.99) 100%
+  ) !important;
+  backdrop-filter: blur(28px) brightness(0.25) !important;
+  -webkit-backdrop-filter: blur(28px) brightness(0.25) !important;
+  border: 2px solid rgba(255, 23, 68, 0.82) !important;
+  border-radius: 10px !important;
+  box-sizing: border-box !important;
+  text-align: center !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  cursor: default !important;
+  overflow: hidden !important;
+  overflow-anchor: none !important;
+  pointer-events: auto !important;
+  opacity: 1 !important;
+}
+
+.gta6-spoiler-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  padding: 5px 12px !important;
+  background: rgba(255, 23, 68, 0.2) !important;
+  border: 1.5px solid #ff1744 !important;
+  border-radius: 999px !important;
+  color: #ff1744 !important;
+  font-weight: 900 !important;
+  font-size: 13px !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  text-shadow: 0 0 12px rgba(255, 23, 68, 0.7) !important;
+  box-shadow: 0 0 16px rgba(255, 23, 68, 0.25) !important;
+  line-height: 1.15 !important;
+  white-space: nowrap !important;
+  max-width: 100% !important;
+}
+
+.gta6-spoiler-subtext {
+  color: #e2e8f0 !important;
+  font-size: 11.5px !important;
+  font-weight: 500 !important;
+  max-width: 92% !important;
+  line-height: 1.3 !important;
+  opacity: 0.9 !important;
+}
+
+.gta6-spoiler-keyword-tag {
+  color: #ff6b81 !important;
+  font-weight: 700 !important;
+}
+
+.gta6-spoiler-btn {
+  margin-top: 2px !important;
+  padding: 5px 12px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.24) !important;
+  border-radius: 7px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  pointer-events: auto !important;
+  white-space: nowrap !important;
+}
+
+.gta6-spoiler-btn:hover {
+  background: #ff1744 !important;
+  border-color: #ff1744 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 12px rgba(255, 23, 68, 0.6) !important;
+}
+
+/* Orta-Küçük Boyutlu Kartlar */
+.gta6-spoiler-overlay.gta6-spoiler-compact {
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  padding: 4px 8px !important;
+  gap: 6px !important;
+  border-width: 1.5px !important;
+  border-radius: 8px !important;
+}
+
+.gta6-spoiler-overlay.gta6-spoiler-compact .gta6-spoiler-subtext {
+  display: none !important;
+}
+
+.gta6-spoiler-overlay.gta6-spoiler-compact .gta6-spoiler-badge {
+  font-size: 10px !important;
+  padding: 2px 7px !important;
+  letter-spacing: 0.5px !important;
+}
+
+.gta6-spoiler-overlay.gta6-spoiler-compact .gta6-spoiler-btn {
+  margin-top: 0 !important;
+  padding: 2px 7px !important;
+  font-size: 9.5px !important;
+}
+
+/* Kick Gözat Thumbnail'ında sol üstteki İzleyici Sayısı (39,5 B / LIVE) rozetinin blur üstünde görünür kalması için */
+.gta6-kick-keep-visible {
+  position: relative !important;
+  z-index: 2147483646 !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+}
